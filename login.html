@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Scheda Personaggio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <meta
+      name="google-signin-client_id"
+      content="442458169483-3hqu4aunk4klbv8riimuq0asp23k4eig.apps.googleusercontent.com"
+    />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <style>
+      .navbar {
+        background-color: darkgreen;
+      }
+
+      .page {
+        color: black;
+        width: 100%;
+        height: center;
+        top: center;
+        left: center;
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      body {
+        color: black;
+        width: 100%;
+        height: 100%;
+        background-image: url("sfondo.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: transparent;
+        align-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-default"
+      style="background-color: lightblue; color: black;"
+    >
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="crea.html">Crea</a></li>
+          <li><a href="visualizza.html">Visualizza</a></li>
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#"
+                ><span class="glyphicon glyphicon-log-in"></span> Login</a
+              >
+            </li>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+    <div class="page">
+      <div class="container" style="text-align: center;">
+        <h3>Login</h3>
+
+        <p>
+          Il login serve per avere salvate le schede
+        </p>
+        <div>
+          <div class="col-sm-5"></div>
+          <div
+            class="g-signin2"
+            data-onsuccess="onSignIn"
+            class="col-sm-5"
+          ></div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </body>
+</html>

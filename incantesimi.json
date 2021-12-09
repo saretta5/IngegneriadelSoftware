@@ -1,0 +1,8 @@
+{
+  "nome": "Bagliore Lunare",
+  "livello": 2,
+  "gittata": "36 metri",
+  "durata": "concentrazione, fino a 1 minuto",
+  "classi": ["druido"],
+  "effetto": "Un bagliore argentato di luce pallida forma un cilindro del raggio di 1,5 metri e alto 12 metri, centrato su un punto entro gittata. Creature che entrano subiscono TS, se fallito 2d10 di danno"
+}

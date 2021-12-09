@@ -1,0 +1,6 @@
+{
+  "nome": "Druidico",
+  "livello": 1,
+  "classe": "druido",
+  "descrizione": "Un druido conosce il Druidico, il linguaggio segreto del suo ordine: può parlare in quel linguaggio e usarlo per lasciare messaggi segreti. Il druido e coloro che conoscono questo linguaggio sono in grado di avvistare questi messaggi automaticamente. Altri possono notare la presenza di un messaggio in Druidico superando la prova Saggezza (Percezione) con CD 15, ma non possono decifrarlo senza l'aiuto della magia."
+}

@@ -1,0 +1,18 @@
+.navbar {
+  background-color: darkgreen;
+}
+
+.homepage {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("sfondo.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+body {
+  color: black;
+  background-image: url(sfondo.jpg);
+}
