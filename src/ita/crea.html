@@ -16,8 +16,10 @@
       crossorigin="anonymous"
       src="https://cdn.amcapi.com/translation/cloudtranslation-1.0.0.min.js"
     ></script>
-    <script type="text/javascript" src="../incantesimi.json"></script>
-
+    <script type="text/javascript" src="../oggetti.js"></script>
+    <script type="text/javascript" src="../incantesimi.js"></script>
+    <script type="text/javascript" src="../abilita.js"></script>
+    <script type="text/javascript" src="../calcolamod.js"></script>
     <style>
       .navbar {
         background-color: darkgreen;
@@ -48,7 +50,7 @@
       }
     </style>
   </head>
-  <body onload="populateSelectA(), populateSelectE(),populateSelectI()">
+  <body onload="populateSelectE(),populateSelectI()">
     <nav
       class="navbar navbar-default"
       style="background-color: lightblue; color: black;"
@@ -76,15 +78,16 @@
     <div class="page">
       <form name="forms" id="forms">
         <div class="container">
+          <br />
           <div class="row">
             <div class="col-sm-4">
-              <label>Nome</label> <input name="nome" />
+              <label>Nome</label> <input name="nome" id="nome" />
             </div>
             <div class="col-sm-4">
-              <label>Classe</label> <input name="classe" />
+              <label>Classe</label> <input name="classe" id="classe" />
             </div>
             <div class="col-sm-4">
-              <label>Razza</label> <input name="razza" />
+              <label>Razza</label> <input name="razza" id="razza" />
             </div>
           </div>
 
@@ -92,33 +95,36 @@
 
           <div class="row">
             <div class="col-sm-4">
-              <input type="checkbox" name="caster" /><label>Caster</label>
-            </div>
-            <div class="col-sm-4">
-              <label>Livello</label> <input name="livello" />
-            </div>
-            <div class="col-sm-4">
-              <label>Allineamento</label> <input name="allineamento" />
-            </div>
-          </div>
-
-          <br />
-
-          <div class="row">
-            <div class="col-sm-3">
-              <input type="checkbox" name="ispirazione" /><label
-                >Ispirazione</label
+              <input type="checkbox" name="caster" id="caster" /><label
+                >Caster</label
               >
             </div>
+            <div class="col-sm-4">
+              <label>Livello</label>
+              <input name="livello" id="livello" type="number" />
+            </div>
+            <div class="col-sm-4">
+              <label>Allineamento</label>
+              <input name="allineamento" id="allineamento" />
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
             <div class="col-sm-3">
-              <label>HP</label> <input style="width: 35%;" name="hp" />
+              <label>bonus</label>
+              <input name="bonus" id="bonus" />
             </div>
             <div class="col-sm-3">
-              <label>CA</label> <input style="width: 35%;" name="ca" />
+              <label>HP</label> <input style="width: 35%;" name="hp" id="hp" />
+            </div>
+            <div class="col-sm-3">
+              <label>CA</label> <input style="width: 35%;" name="ca" id="ca" />
             </div>
             <div class="col-sm-3">
               <label>Iniziativa</label>
-              <input style="width: 35%;" name="iniziativa" />
+              <input style="width: 35%;" name="iniziativa" id="iniziativa" />
             </div>
           </div>
 
@@ -127,67 +133,60 @@
           <div class="row">
             <div class="col-sm-4"><strong>Score</strong></div>
             <div class="col-sm-4"><strong>Modificatore</strong></div>
-            <div class="col-sm-4"><strong>Mod. Salvezza</strong></div>
           </div>
 
           <div class="row">
             <div class="col-sm-4">
-              <input style="width: 25%;" name="for" /><label>FOR</label>
+              <input style="width: 25%;" name="for" id="for" /><label
+                >FOR</label
+              >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
-            <div class="col-sm-4">
-              <input style="width: 25%;" /> <input type="checkbox" />
-            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mfor" /></div>
           </div>
 
           <div class="row">
             <div class="col-sm-4">
-              <input style="width: 25%;" name="des" /><label>DES</label>
+              <input style="width: 25%;" name="des" id="des" /><label
+                >DES</label
+              >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
-            <div class="col-sm-4">
-              <input style="width: 25%;" /> <input type="checkbox" />
-            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mdes" /></div>
           </div>
 
           <div class="row">
             <div class="col-sm-4">
-              <input style="width: 25%;" name="cos" /><label>COS</label>
+              <input style="width: 25%;" name="cos" id="cos" /><label
+                >COS</label
+              >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
-            <div class="col-sm-4">
-              <input style="width: 25%;" /> <input type="checkbox" />
-            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mcos" /></div>
           </div>
 
           <div class="row">
             <div class="col-sm-4">
-              <input style="width: 25%;" name="int" /><label>INT</label>
+              <input style="width: 25%;" name="int" id="int" /><label
+                >INT</label
+              >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
-            <div class="col-sm-4">
-              <input style="width: 25%;" /> <input type="checkbox" />
-            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mint" /></div>
           </div>
 
           <div class="row">
             <div class="col-sm-4">
-              <input style="width: 25%;" name="sag" /><label>SAG</label>
+              <input style="width: 25%;" name="sag" id="sag" /><label
+                >SAG</label
+              >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
-            <div class="col-sm-4">
-              <input style="width: 25%;" /> <input type="checkbox" />
-            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="msag" /></div>
           </div>
 
           <div class="row">
             <div class="col-sm-4">
-              <input style="width: 25%;" name="car" /><label>CAR</label>
+              <input style="width: 25%;" name="car" id="car" /><label
+                >CAR</label
+              >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
-            <div class="col-sm-4">
-              <input style="width: 25%;" /> <input type="checkbox" />
-            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mcar" /></div>
           </div>
 
           <br />
@@ -204,15 +203,21 @@
                 <select id="ab" onchange="show(this)">
                   <option value="">-- Select --</option>
                 </select>
+                <div>
+                  <br />
+                  <button type="button" onclick="populateSelectA(),calcola()">
+                    Carica Abilità
+                  </button>
+                </div>
               </div>
             </div>
             <div class="col-sm-4">
-              <select id="eq" onchange="show(this)">
+              <select id="eq" onchange="showe(this)">
                 <option value="">-- Select --</option>
               </select>
             </div>
             <div class="col-sm-4">
-              <select id="in" onchange="show(this)">
+              <select id="in" onchange="showi(this)">
                 <option value="">-- Select --</option>
               </select>
             </div>
@@ -231,162 +236,20 @@
               <p id="msgi"></p>
             </div>
           </div>
-          <button type="submit">Submit</button>
+          <div class="row">
+            <textarea
+              style="width: 100%; height: 100px;"
+              nome="note"
+              id="note"
+            ></textarea>
+          </div>
+          <div class="row">
+            <button type="submit">Salva</button>
+          </div>
         </div>
       </form>
+      <br />
     </div>
   </body>
-
-  <script>
-    function populateSelectA() {
-      // THE JSON ARRAY.
-
-      var msga = " ";
-      var msge = " ";
-      var msgi = " ";
-
-      var abilita = [
-        {
-          nome: "Druidico",
-          livello: 1,
-          classe: "druido",
-          descrizione:
-            "Un druido conosce il Druidico, il linguaggio segreto del suo ordine: può parlare in quel linguaggio e usarlo per lasciare messaggi segreti. Il druido e coloro che conoscono questo linguaggio sono in grado di avvistare questi messaggi automaticamente. Altri possono notare la presenza di un messaggio in Druidico superando la prova Saggezza (Percezione) con CD 15, ma non possono decifrarlo senza l'aiuto della magia."
-        }
-      ];
-      var elea = document.getElementById("ab");
-      for (var i = 0; i < abilita.length; i++) {
-        // POPULATE SELECT ELEMENT WITH JSON.
-        elea.innerHTML =
-          elea.innerHTML +
-          '<option value="' +
-          "livello:" +
-          abilita[i]["livello"] +
-          " " +
-          "classe:" +
-          abilita[i]["classe"] +
-          " " +
-          "descrizione:" +
-          abilita[i]["descrizione"] +
-          '">' +
-          abilita[i]["nome"] +
-          "</option>";
-      }
-    }
-
-    function show(elea) {
-      // GET THE SELECTED VALUE FROM <select> ELEMENT AND SHOW IT.
-      var msga = document.getElementById("msga");
-      msga.innerHTML =
-        "Abilità selezionata: <b>" +
-        elea.options[elea.selectedIndex].text +
-        "</b> </br>" +
-        "descrizione: <b>" +
-        elea.value +
-        "</b></br>";
-    }
-  </script>
-  <script>
-    function populateSelectE() {
-      var equipaggiamaneto = [
-        {
-          nome: "falcetto",
-          valore: "1 mo",
-          danni: "1d4",
-          proprieta: "leggera",
-          peso: "1 kg",
-          descrizione: "-"
-        }
-      ];
-      var elee = document.getElementById("eq");
-      for (var i = 0; i < equipaggiamaneto.length; i++) {
-        // POPULATE SELECT ELEMENT WITH JSON.
-        elee.innerHTML =
-          elee.innerHTML +
-          '<option value="' +
-          "valore:" +
-          equipaggiamaneto[i]["valore"] +
-          " " +
-          "danni:" +
-          equipaggiamaneto[i]["danni"] +
-          " " +
-          "proprieta:" +
-          equipaggiamaneto[i]["proprieta"] +
-          " " +
-          "peso:" +
-          equipaggiamaneto[i]["peso"] +
-          " " +
-          "descrizione:" +
-          equipaggiamaneto[i]["descrizione"] +
-          '">' +
-          equipaggiamaneto[i]["nome"] +
-          "</option>";
-      }
-    }
-
-    function show(elee) {
-      // GET THE SELECTED VALUE FROM <select> ELEMENT AND SHOW IT.
-      var msge = document.getElementById("msge");
-      msge.innerHTML =
-        "Equipaggiamaneto selezionata: <b>" +
-        elee.options[elee.selectedIndex].text +
-        "</b> </br>" +
-        "descrizione: <b>" +
-        elee.value +
-        "</b></br>";
-    }
-  </script>
-
-  <script>
-    function populateSelectI() {
-      var incantesimo = [
-        {
-          nome: "Bagliore Lunare",
-          livello: 2,
-          gittata: "36 metri",
-          durata: "concentrazione, fino a 1 minuto",
-          classi: ["druido"],
-          effetto:
-            "Un bagliore argentato di luce pallida forma un cilindro del raggio di 1,5 metri e alto 12 metri, centrato su un punto entro gittata. Creature che entrano subiscono TS, se fallito 2d10 di danno"
-        }
-      ];
-      var elei = document.getElementById("in");
-      for (var i = 0; i < incantesimo.length; i++) {
-        // POPULATE SELECT ELEMENT WITH JSON.
-        elei.innerHTML =
-          elei.innerHTML +
-          '<option value="' +
-          "livello:" +
-          incantesimo[i]["livello"] +
-          +" " +
-          "gittata:" +
-          incantesimo[i]["gittata"] +
-          " " +
-          "durata:" +
-          incantesimo[i]["durata"] +
-          " " +
-          "classi:" +
-          incantesimo[i]["classi"] +
-          " " +
-          "effetto:" +
-          incantesimo[i]["effetto"] +
-          '">' +
-          incantesimo[i]["nome"] +
-          "</option>";
-      }
-    }
-
-    function show(elei) {
-      // GET THE SELECTED VALUE FROM <select> ELEMENT AND SHOW IT.
-      var msgi = document.getElementById("msgi");
-      msgi.innerHTML =
-        "incantesimo selezionata: <b>" +
-        elei.options[elei.selectedIndex].text +
-        "</b> </br>" +
-        "descrizione: <b>" +
-        elei.value +
-        "</b></br>";
-    }
-  </script>
   <script src="../schedetojson.js"></script>
 </html>
