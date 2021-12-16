@@ -20,6 +20,7 @@
     <script type="text/javascript" src="../incantesimi.js"></script>
     <script type="text/javascript" src="../abilita.js"></script>
     <script type="text/javascript" src="../caricascheda.js"></script>
+    <script type="text/javascript" src="../calcolamod.js"></script>
     <style>
       .navbar {
         background-color: darkgreen;
@@ -61,7 +62,7 @@
         </div>
         <ul class="nav navbar-nav">
           <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="#">Crea</a></li>
+          <li><a href="crea.html">Crea</a></li>
           <li><a href="visualizza.html">Visualizza</a></li>
           <ul class="nav navbar-nav">
             <li>
@@ -113,7 +114,7 @@
 
           <div class="row">
             <div class="col-sm-3">
-              <label>bonus</label>
+              <label>Bonus</label>
               <input name="bonus" id="bonus" />
             </div>
             <div class="col-sm-3">
@@ -141,7 +142,7 @@
                 >FOR</label
               >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mfor" /></div>
           </div>
 
           <div class="row">
@@ -150,7 +151,7 @@
                 >DES</label
               >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mdes" /></div>
           </div>
 
           <div class="row">
@@ -159,7 +160,7 @@
                 >COS</label
               >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mcos" /></div>
           </div>
 
           <div class="row">
@@ -168,7 +169,7 @@
                 >INT</label
               >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mint" /></div>
           </div>
 
           <div class="row">
@@ -177,7 +178,7 @@
                 >SAG</label
               >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
+            <div class="col-sm-4"><input style="width: 25%;" id="msag" /></div>
           </div>
 
           <div class="row">
@@ -186,7 +187,7 @@
                 >CAR</label
               >
             </div>
-            <div class="col-sm-4"><input style="width: 25%;" /></div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mcar" /></div>
           </div>
 
           <br />
@@ -205,8 +206,8 @@
                 </select>
                 <div>
                   <br />
-                  <button type="button" onclick="populateSelectA()">
-                    Carica Abilità
+                  <button type="button" onclick="populateSelectA(), calcola()">
+                    Calcola
                   </button>
                 </div>
               </div>

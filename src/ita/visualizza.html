@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="style.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script  type="text/javascript" src="../schedetojson.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     
     <style>
       .navbar {
@@ -70,7 +70,19 @@
 
     <div class="page">
       <h3>Lista Schede</h3>
-      <p>
+      <div class="scheda" style="background-color:lightcyan; margin-left: 25%; 
+          margin-right: 25%; width: 50%; text-align: left; border-style:solid; border-color:black;">
+          <div class="scheda-body" style="margin:3%;">
+            <h2>Eldor</h2>
+            <h5 class="scheda-text">Elfo Druido Livello 3</h5>
+            <a href="visualizzazione_singola.html" class="btn btn-primary">Vai alla scheda</a>
+            <button class="btn btn-danger">Elimina</button>
+          </div>
+      </div>
+
+      <br>
+
+      <!--<p>
         scheda nome
         <script>
           var h = output;
@@ -78,13 +90,8 @@
           document.write(h);
           </script>
       </p>
-      <a
-        href="visualizzazione_singola.html"
-        class="btn btn-info"
-        role="button"
-        style="color: black; background-color: lightblue;"
-        >Visualizza singola Scheda</a
-      >
+      -->
+
     </div>
   </body>
 </html>
