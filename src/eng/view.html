@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="../visua.js"></script>
+    
+    <style>
+      .navbar {
+        background-color: darkgreen;
+      }
+
+      .page {
+        color: black;
+        width: 100%;
+        height: center;
+        top: center;
+        left: center;
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      body {
+        color: black;
+        width: 100%;
+        height: 100%;
+        background-image: url("../../sfondo.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: transparent;
+        align-content: center;
+      }
+    </style>
+  </head>
+  <body onload=carica()>
+    <nav
+      class="navbar navbar-default"
+      style="background-color: lightblue; color: black;"
+    >
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="https://6r4kz.csb.app/scr/eng/home.html">Home</a></li>
+          <li><a href="https://6r4kz.csb.app/src/eng/create.html">Create</a></li>
+          <li class="active"><a href="#">View</a></li>
+          <ul class="nav navbar-nav ">
+            <li>
+              <a href="https://6r4kz.csb.app/src/eng/log.html"
+                ><span class="glyphicon glyphicon-log-in"></span> Login</a
+              >
+            </li>
+        </ul>
+        <li><a href="https://6r4kz.csb.app/src/ita/visualizza.html">Italiano</a></li>
+      </ul>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="page" id="page">
+      <h3>Card List</h3>
+    </div>
+  </body>
+</html>

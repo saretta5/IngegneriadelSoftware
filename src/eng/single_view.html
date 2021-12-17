@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../abilita.json"></script>
+    <script
+      crossorigin="anonymous"
+      src="https://cdn.amcapi.com/translation/cloudtranslation-1.0.0.min.js"
+    ></script>
+    <script type="text/javascript" src="../oggetti.js"></script>
+    <script type="text/javascript" src="../incantesimi.js"></script>
+    <script type="text/javascript" src="../abilita.js"></script>
+    <script type="text/javascript" src="../caricascheda.js"></script>
+    <script type="text/javascript" src="../calcolamod.js"></script>
+    <style>
+      .navbar {
+        background-color: darkgreen;
+      }
+
+      .page {
+        color: black;
+        width: 100%;
+        height: center;
+        top: center;
+        left: center;
+        text-align: center;
+        position: absolute;
+        top: 20%;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      body {
+        color: black;
+        width: 100%;
+        height: 100%;
+        background-image: url("../../sfondo.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: transparent;
+        align-content: center;
+      }
+    </style>
+  </head>
+  <body onload="populateSelectE(),populateSelectI(), populate()">
+    <nav
+      class="navbar navbar-default"
+      style="background-color: lightblue; color: black;"
+    >
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="https://6r4kz.csb.app/scr/eng/home.html">Home</a></li>
+          <li>
+            <a href="https://6r4kz.csb.app/src/eng/create.html">Create</a>
+          </li>
+          <li>
+            <a href="https://6r4kz.csb.app/src/eng/view.html">View</a>
+          </li>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="https://6r4kz.csb.app/src/eng/log.html"
+                ><span class="glyphicon glyphicon-log-in"></span> Login</a
+              >
+            </li>
+          </ul>
+          <li>
+            <a href="https://6r4kz.csb.app/src/ita/visualizzazione_singola.html"
+              >Italiano</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="page">
+      <form name="forms" id="forms">
+        <div class="container">
+          <br />
+          <div class="row">
+            <div class="col-sm-4">
+              <label>Name</label> <input name="nome" id="nome" />
+            </div>
+            <div class="col-sm-4">
+              <label>Class</label> <input name="classe" id="classe" />
+            </div>
+            <div class="col-sm-4">
+              <label>Race</label> <input name="razza" id="razza" />
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" name="caster" id="caster" /><label
+                >Caster</label
+              >
+            </div>
+            <div class="col-sm-4">
+              <label>Level</label>
+              <input name="livello" id="livello" type="number" />
+            </div>
+            <div class="col-sm-4">
+              <label>Alignment</label>
+              <input name="allineamento" id="allineamento" />
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-sm-3">
+              <label>Bonus</label>
+              <input name="bonus" id="bonus" />
+            </div>
+            <div class="col-sm-3">
+              <label>HP</label> <input style="width: 35%;" name="hp" id="hp" />
+            </div>
+            <div class="col-sm-3">
+              <label>CA</label> <input style="width: 35%;" name="ca" id="ca" />
+            </div>
+            <div class="col-sm-3">
+              <label>Initiative</label>
+              <input style="width: 35%;" name="iniziativa" id="iniziativa" />
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-sm-4"><strong>Score</strong></div>
+            <div class="col-sm-4"><strong>Modifier</strong></div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <input style="width: 25%;" name="for" id="for" /><label
+                >FOR</label
+              >
+            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mfor" /></div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <input style="width: 25%;" name="des" id="des" /><label
+                >DES</label
+              >
+            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mdes" /></div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <input style="width: 25%;" name="cos" id="cos" /><label
+                >COS</label
+              >
+            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mcos" /></div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <input style="width: 25%;" name="int" id="int" /><label
+                >INT</label
+              >
+            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mint" /></div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <input style="width: 25%;" name="sag" id="sag" /><label
+                >SAG</label
+              >
+            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="msag" /></div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <input style="width: 25%;" name="car" id="car" /><label
+                >CAR</label
+              >
+            </div>
+            <div class="col-sm-4"><input style="width: 25%;" id="mcar" /></div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-sm-4"><strong>Ability</strong></div>
+            <div class="col-sm-4"><strong>Equipment</strong></div>
+            <div class="col-sm-4"><strong>Spells</strong></div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <div>
+                <select id="ab" onchange="show(this)">
+                  <option value="">-- Select --</option>
+                </select>
+                <div>
+                  <br />
+                  <button type="button" onclick="populateSelectA(), calcola()">
+                    Calculate
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <select id="eq" onchange="showe(this)">
+                <option value="">-- Select --</option>
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <select id="in" onchange="showi(this)">
+                <option value="">-- Select --</option>
+              </select>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-sm-4" style="position: left;">
+              <p id="msga"></p>
+            </div>
+            <div class="col-sm-4">
+              <p id="msge"></p>
+            </div>
+            <div class="col-sm-4">
+              <p id="msgi"></p>
+            </div>
+          </div>
+          <div class="row">
+            <textarea
+              style="width: 100%; height: 100px;"
+              nome="note"
+              id="note"
+            ></textarea>
+          </div>
+          <div class="row">
+            <button type="submit">Save</button>
+          </div>
+        </div>
+      </form>
+      <br />
+    </div>
+  </body>
+  <script src="../schedetojson.js"></script>
+</html>

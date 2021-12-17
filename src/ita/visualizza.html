@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bootstrap Example</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -11,6 +10,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="../visua.js"></script>
     
     <style>
       .navbar {
@@ -42,7 +42,7 @@
       }
     </style>
   </head>
-  <body>
+  <body onload=carica()>
     <nav
       class="navbar navbar-default"
       style="background-color: lightblue; color: black;"
@@ -52,46 +52,24 @@
           <a class="navbar-brand" href="#"></a>
         </div>
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="crea.html">Crea</a></li>
+          <li><a href="https://6r4kz.csb.app/index.html">Home</a></li>
+          <li><a href="https://6r4kz.csb.app/src/ita/crea.html">Crea</a></li>
           <li class="active"><a href="#">Visualizza</a></li>
           <ul class="nav navbar-nav ">
             <li>
-              <a href="login.html"
+              <a href="https://6r4kz.csb.app/src/ita/login.html"
                 ><span class="glyphicon glyphicon-log-in"></span> Login</a
               >
             </li>
         </ul>
-        <li><a href="../eng/view.html">English</a></li>
+        <li><a href="https://6r4kz.csb.app/src/eng/view.html">English</a></li>
       </ul>
         </ul>
       </div>
     </nav>
 
-    <div class="page">
+    <div class="page" id="page">
       <h3>Lista Schede</h3>
-      <div class="scheda" style="background-color:lightcyan; margin-left: 25%; 
-          margin-right: 25%; width: 50%; text-align: left; border-style:solid; border-color:black;">
-          <div class="scheda-body" style="margin:3%;">
-            <h2>Eldor</h2>
-            <h5 class="scheda-text">Elfo Druido Livello 3</h5>
-            <a href="visualizzazione_singola.html" class="btn btn-primary">Vai alla scheda</a>
-            <button class="btn btn-danger">Elimina</button>
-          </div>
-      </div>
-
-      <br>
-
-      <!--<p>
-        scheda nome
-        <script>
-          var h = output;
-          alert(globalVariable.x);
-          document.write(h);
-          </script>
-      </p>
-      -->
-
     </div>
   </body>
 </html>
